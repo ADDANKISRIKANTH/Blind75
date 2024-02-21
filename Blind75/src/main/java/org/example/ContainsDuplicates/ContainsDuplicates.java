@@ -1,4 +1,4 @@
-package org.example.arrays.ContainsDuplicates;
+package org.example.ContainsDuplicates;
 
 public class ContainsDuplicates {
 
