@@ -1,32 +1,33 @@
 package org.example.arrays.Anagrams;
 
-public class Anagrams {
-        private static boolean isAnagram(String s,String t){
-            int s_len = s.length();
-            int t_len = t.length();
+import java.util.Arrays;
 
-            int[] arr = new int[26];
-            if(s_len != t_len){
+public class Anagrams {
+    private static boolean isAnagram(String s, String t) {
+
+        if (s.length() != t.length()) {
+            return false;
+        }
+        char[] chs = s.toCharArray();
+        char[] cht = t.toCharArray();
+        Arrays.sort(chs);
+        Arrays.sort(cht);
+
+        for(int i=0; i<s.length(); i++){
+
+            if(chs[i] != cht[i]){
                 return false;
             }
-            for(int i=0; i<s_len; i++){
-                arr[s.charAt(i)-'a']++;
-                arr[t.charAt(i)-'a']--;
-            }
-
-            for(int k:arr){
-                if(k != 0){
-                    return false;
-                }
-            }
-            return true;
         }
+        return true;
+    }
+
     public static void main(String[] args) {
         String s = "anagram";
-        String t = "ngaram";
-        if(isAnagram(s,t)){
+        String t = "nagaram";
+        if (isAnagram(s, t)) {
             System.out.println("anagram");
-        }else{
+        } else {
             System.out.println("not an anagram");
         }
     }
