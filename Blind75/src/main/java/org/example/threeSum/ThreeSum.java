@@ -37,8 +37,35 @@ public class ThreeSum {
     }
 
     public static void main(String[] args) {
-        int[] arr = {-1,0,1,2,-1,-4};
-        List<List<Integer>> val = getThreeSum(arr);
+        int[] arr = {-1,2,1,-4};
+        int val = getSumOfThree(arr,1);
         System.out.println(val);
+    }
+
+
+    public static int getSumOfThree(int[] arr,int target){
+        int val = 0;
+        Map<Integer, Integer> map;
+
+        for (int i = 0; i < arr.length; i++) {
+            int first = arr[i];
+            int newTarget = target - first;
+            map = new HashMap<>();
+
+            for (int j = i + 1; j < arr.length; j++) {
+                int second = arr[j];
+                int complement = newTarget - second;
+
+                if (map.containsKey(complement)) {
+                    int third = map.get(complement);
+                    val = first + second + arr[third];
+                    return val;
+                } else {
+                    map.put(second, j);
+                }
+            }
+        }
+
+        return val;
     }
 }
