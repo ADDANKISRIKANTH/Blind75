@@ -14,5 +14,6 @@ public class LinkedListDriverClass {
         linkedList.read();
         System.out.println(linkedList.size());
         System.out.println(linkedList.search(70));
+        System.out.println(linkedList.index(50));
     }
 }

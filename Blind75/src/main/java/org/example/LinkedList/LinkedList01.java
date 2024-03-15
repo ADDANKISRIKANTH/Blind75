@@ -54,6 +54,25 @@ public class LinkedList01 {
         return flag;
     }
 
+    int index(int searchData){
+
+        boolean flag = false;
+        int index = -1;
+        Node current = first;
+
+        while(current != null){
+
+            index++;
+            if(current.data == searchData){
+                flag = true;
+                break;
+            }
+            current = current.next;
+        }
+        return flag ? index : -1;
+    }
+
+
     class Node{
         int data;
         Node next;
