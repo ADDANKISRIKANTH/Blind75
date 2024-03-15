@@ -24,6 +24,34 @@ public class LinkedList01 {
             System.out.print(current.data+",");
             current = current.next;
         }
+        System.out.println();
+    }
+
+    public int size(){
+
+        int count=0;
+        Node current = first;
+
+        while(current != null){
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
+
+    public boolean search(int searchData){
+        boolean flag = false;
+        Node current = first;
+
+        while(current != null){
+
+            if(current.data == searchData){
+                flag = true;
+                break;
+            }
+            current = current.next;
+        }
+        return flag;
     }
 
     class Node{
