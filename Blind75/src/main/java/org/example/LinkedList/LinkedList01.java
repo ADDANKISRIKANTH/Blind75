@@ -72,6 +72,35 @@ public class LinkedList01 {
         return flag ? index : -1;
     }
 
+    public int nextTo(int data){
+        int nextData = 0;
+        Node current = first;
+
+        while(current != null){
+            if(current.data == data){
+                nextData = (current.next != null) ? current.next.data : 0;
+                break;
+            }
+            current = current.next;
+        }
+        return nextData;
+    }
+
+    public int prevData(int data){
+        int prevData=0;
+        Node current = first,prev = first;
+
+        while(current != null){
+
+            if(current.data == data){
+                prevData = prev.data;
+                break;
+            }
+            prev = current;
+            current = current.next;
+        }
+        return prevData;
+    }
 
     class Node{
         int data;

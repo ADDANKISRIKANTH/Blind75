@@ -12,8 +12,10 @@ public class LinkedListDriverClass {
         linkedList.add(50);
         linkedList.add(60);
         linkedList.read();
-        System.out.println(linkedList.size());
-        System.out.println(linkedList.search(70));
-        System.out.println(linkedList.index(50));
+//        System.out.println(linkedList.size());
+//        System.out.println(linkedList.search(70));
+//        System.out.println(linkedList.index(50));
+        System.out.println(linkedList.nextTo(50));
+        System.out.println(linkedList.prevData(50));
     }
 }
