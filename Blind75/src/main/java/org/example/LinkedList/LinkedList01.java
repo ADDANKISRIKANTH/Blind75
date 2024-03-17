@@ -102,6 +102,30 @@ public class LinkedList01 {
         return prevData;
     }
 
+    public int readMiddleNode(){
+        Node current = first;
+        Node doubleHead = first;
+
+        while(doubleHead != null){
+
+            current = current.next;
+            doubleHead = doubleHead.next.next;
+        }
+        return current.data;
+    }
+
+    public void removeLastNode(){
+
+        Node current = first, prev = first;
+
+        while(current != null){
+
+            if(current.next.next == null){
+               current.next = null;
+            }
+            current = current.next;
+        }
+    }
     class Node{
         int data;
         Node next;
