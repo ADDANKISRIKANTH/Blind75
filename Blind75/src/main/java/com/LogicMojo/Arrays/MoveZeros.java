@@ -1,6 +1,8 @@
 package com.LogicMojo.Arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MoveZeros {
 
@@ -19,8 +21,27 @@ public class MoveZeros {
         return arr;
     }
 
+    public static int[] moveAllZerosToEnd(int[] arr){
+        List<Integer> lis = new ArrayList<>();
+
+        for(int i=0; i<arr.length;i++){
+            if(arr[i] != 0){
+                lis.add(arr[i]);
+            }
+        }
+
+        for(int j=0;j<lis.size();j++){
+            arr[j] = lis.get(j);
+        }
+
+        for(int i=lis.size(); i<arr.length;i++){
+            arr[i] = 0;
+        }
+        return arr;
+    }
+
     public static void main(String[] args) {
-        int [] arr = {0,1,0,3,12};
-        System.out.println(Arrays.toString(getAllMovedZerosToEnd(arr)));
+        int [] arr = {1,0,2,3,2,0,0,4,5,1};
+        System.out.println(Arrays.toString(moveAllZerosToEnd(arr)));
     }
 }

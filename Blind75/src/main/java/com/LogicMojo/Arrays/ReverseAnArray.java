@@ -39,6 +39,26 @@ public class ReverseAnArray {
         return arr;
     }
 
+    public static int[] reverseAnArray(int [] arr){
+
+        int start=0;
+        int end = arr.length-1;
+
+        while(start<end){
+
+            swap(arr,start,end);
+            start++;
+            end--;
+        }
+        return arr;
+    }
+
+    public static void swap(int[] arr,int start,int end){
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+
+    }
     public static void reverse(int[] arr, int start, int end) {
         while (start < end) {
             int temp = arr[start];
@@ -52,7 +72,7 @@ public class ReverseAnArray {
 
     public static void main(String[] args) {
         int [] arr = {10,23,25,28,35,40,50,60};
-        int [] k = getOptimisedKRotate(arr,8,3);
+        int [] k = reverseAnArray(arr);
         System.out.println(Arrays.toString(k));
     }
 }
