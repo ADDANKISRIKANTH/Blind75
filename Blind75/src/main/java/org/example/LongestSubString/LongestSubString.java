@@ -21,6 +21,7 @@ public class LongestSubString {
                     i++;
                 }
             }
+            
             map.put(ch,j);
             ans = Math.max(j-i+1,ans);
         }

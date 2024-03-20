@@ -26,9 +26,12 @@ public class validateParenthesis {
         }
         return stack.empty();
     }
+
+
+
     public static void main(String[] args) {
 
-        String str = "((";
+        String str = "()";
         boolean k = validate(str);
         System.out.println(k);
     }
