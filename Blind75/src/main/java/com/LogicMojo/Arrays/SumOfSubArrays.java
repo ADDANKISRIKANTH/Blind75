@@ -1,5 +1,6 @@
 package com.LogicMojo.Arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,10 +27,10 @@ public class SumOfSubArrays {
     }
 
 
-    public static void main(String[] args) {
-        int[] arr = {2,7,11,15};
-        System.out.println(Arrays.toString(twoSum(arr,9)));
-    }
+//    public static void main(String[] args) {
+//        int[] arr = {2,7,11,15};
+//        System.out.println(Arrays.toString(twoSum(arr,9)));
+//    }
 
     public static int[] twoSum(int[] numbers, int target) {
         int left = 0;
@@ -46,6 +47,30 @@ public class SumOfSubArrays {
             }
         }
         return new int[]{};
+    }
+
+    public static void main(String[] args) {
+        String str = "K1:V1,K2:V2,K3:V3,K4:V4,K5:V5";
+        Map<String, ArrayList<String>> map = new HashMap<>();
+        ArrayList<String> val;
+        String[] spli = str.split(",");
+//
+        for (String pair : spli) {
+
+            String[] spli1 = pair.split(":");
+            System.out.println(Arrays.toString(spli1));
+            String key = spli1[0];
+            String value = spli1[1];
+            val = new ArrayList<>();
+
+
+            val.add(value);
+            // Add the value to the ArrayList associated with the key
+           map.put(key,val);
+        }
+        for (Map.Entry<String, ArrayList<String>> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
     }
 }
 

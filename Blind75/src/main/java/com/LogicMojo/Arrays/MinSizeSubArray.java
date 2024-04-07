@@ -1,5 +1,8 @@
 package com.LogicMojo.Arrays;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MinSizeSubArray {
 
     public static int getMinSubArray(int [] arr,int target){
@@ -18,10 +21,30 @@ public class MinSizeSubArray {
         }
         return min == Integer.MAX_VALUE ?0:min;
     }
-    public static void main(String[] args) {
-        int [] arr = {1,1,1,1,1,1,1,1};
 
-        int k = getMinSubArray(arr,11);
+
+
+    public static int subarraySum(int[] nums, int k) {
+        Map<Integer,Integer> map = new HashMap<>();
+        int count=0;
+        int sum = 0;
+        map.put(0,1);
+        for(int i=0; i<nums.length; i++){
+            sum += nums[i];
+
+            if(map.containsKey(sum - k)){
+                count += map.get(sum-k);
+            }else{
+                map.put(sum, map.getOrDefault(sum, 0) + 1);
+            }
+
+        }
+        return count;
+    }
+    public static void main(String[] args) {
+        int [] arr = {1,2,3};
+
+        int k = subarraySum(arr,3);
         System.out.println(k);
     }
 }
